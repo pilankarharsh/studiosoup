@@ -1,0 +1,384 @@
+---
+const navItems = [
+    { label: "ABOUT", href: "/about" },
+    { label: "SERVICES", href: "/services" },
+    { label: "PROJECTS", href: "/projects" },
+    { label: "CONTACT", href: "/contact" },
+];
+---
+
+<header class="fixed width100 header-animation">
+    <div class="navbar row center container relative flex width100">
+        <!-- logo -->
+        <a href="/" class="brand-logo relative width100">
+            <svg
+                viewBox="0 0 78 52"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    d="M77.6629 49.9317V49.4147C66.8735 49.4147 44.8501 49.394 43.0714 49.3113C41.2927 49.2285 39.5036 48.0014 38.8314 47.3981C37.2802 48.7942 35.4188 49.2596 34.5915 49.4147H0V49.9317H34.5915C36.5357 50.1799 38.2282 51.414 38.8314 52C39.9483 50.759 41.3133 50.1386 43.0714 49.9317H77.6629Z"
+                    fill="#E4BC54"></path>
+                <path
+                    d="M31.2306 11.3071L17.2699 30.5419H60.4447L46.484 11.3071M31.2306 11.3071V2H46.484V11.3071M31.2306 11.3071H46.484"
+                    stroke="#E4BC54"
+                    stroke-width="2.5"></path>
+                <path
+                    d="M6.77353 37.1603L6.04965 38.7115C5.89453 38.97 5.62936 38.9382 5.6877 38.7632C5.74604 38.5882 5.60197 38.4878 5.32576 38.2461C4.99484 37.9566 4.41228 37.7808 4.13651 37.7291C3.67116 37.6601 2.74044 37.6256 2.32679 37.8325C1.44778 38.272 1.6683 39.0258 2.17167 39.1768C2.68874 39.332 3.49535 39.394 4.23992 39.4354C4.98449 39.4767 5.65323 39.8318 5.89453 40.0041C6.20477 40.211 6.77353 40.9659 6.56671 42.3309C6.40125 43.365 5.11893 43.8649 4.49846 43.9855C4.49846 43.9855 2.86779 44.2132 1.91314 43.8821C1.48655 43.7342 0.879015 43.365 0.879015 43.365C0.672191 43.2616 0.361952 43.365 0.361952 43.365C0.361952 43.365 8.48621e-06 43.4167 0.103421 43.2099L0.723896 41.5553C0.827309 41.2968 1.12721 41.3071 1.08584 41.5553C1.03413 41.969 1.2582 42.0724 1.39608 42.1241L2.53362 42.6412C2.94727 42.7963 3.77457 42.848 4.23992 42.7446C5.73941 42.0207 5.06723 41.1934 4.70528 41.1417L2.17167 40.7797C1.68908 40.6763 1.24096 40.5212 0.672187 39.9007C0.25854 39.4495 0.258538 38.0393 0.723893 37.5222C0.947953 37.2292 1.29266 36.7466 2.11997 36.4881C2.63703 36.2813 4.01586 36.4019 4.70528 36.5398L5.99794 37.1086L6.00595 37.1113C6.16417 37.1641 6.48537 37.2712 6.56671 37.1086C6.63773 36.9665 6.82524 37.0569 6.77353 37.1603Z"
+                    fill="#E4BC54"></path>
+                <path
+                    d="M52.8624 37.1162L52.1385 38.6673C51.9834 38.9259 51.7182 38.8941 51.7766 38.719C51.8349 38.544 51.6908 38.4437 51.4146 38.202C51.0837 37.9124 50.5011 37.7366 50.2254 37.6849C49.76 37.616 48.8293 37.5815 48.4157 37.7883C47.5367 38.2278 47.7572 38.9817 48.2605 39.1327C48.7776 39.2878 49.5842 39.3499 50.3288 39.3912C51.0734 39.4326 51.7421 39.7876 51.9834 39.96C52.2936 40.1668 52.8624 40.9217 52.6556 42.2868C52.4901 43.3209 51.2078 43.8207 50.5873 43.9414C50.5873 43.9414 48.9567 44.1691 48.002 43.838C47.5754 43.69 46.9679 43.3209 46.9679 43.3209C46.7611 43.2175 46.4508 43.3209 46.4508 43.3209C46.4508 43.3209 46.0889 43.3726 46.1923 43.1658L46.8128 41.5112C46.9162 41.2526 47.2161 41.263 47.1747 41.5112C47.123 41.9248 47.3471 42.0282 47.4849 42.0799L48.6225 42.597C49.0361 42.7521 49.8634 42.8038 50.3288 42.7004C51.8283 41.9765 51.1561 41.1492 50.7941 41.0975L48.2605 40.7356C47.7779 40.6322 47.3298 40.4771 46.7611 39.8566C46.3474 39.4053 46.3474 37.9952 46.8128 37.4781C47.0368 37.1851 47.3815 36.7025 48.2088 36.444C48.7259 36.2371 50.1047 36.3578 50.7941 36.4957L52.0868 37.0644L52.0948 37.0671C52.253 37.1199 52.5742 37.2271 52.6556 37.0644C52.7266 36.9224 52.9141 37.0127 52.8624 37.1162Z"
+                    fill="#E4BC54"></path>
+                <path
+                    d="M7.50003 36.2052C7.55237 36.3105 7.65706 36.4685 7.8141 36.4685H9.90788H11.5306L9.97938 37.7601C9.97938 37.7601 7.85942 37.7291 7.70941 37.7853C7.60089 37.8399 7.60472 37.8907 7.50003 38.1013C7.41628 38.2699 7.32555 38.1716 7.29065 38.1013V36.2052C7.34299 36.0998 7.44768 36.0998 7.50003 36.2052Z"
+                    fill="#E4BC54"></path>
+                <path
+                    d="M9.97931 43.4685V37.7291L11.5305 36.4881V37.7291V43.4685L11.7373 43.727C11.9441 43.9338 11.8235 43.9855 11.7373 43.9855C11.1168 44.0028 9.83453 44.0269 9.66907 43.9855C9.50361 43.9442 9.66907 43.7615 9.77248 43.6753L9.97931 43.4685Z"
+                    fill="#E4BC54"></path>
+                <path
+                    d="M13.909 36.2052C13.8573 36.3105 13.7539 36.4685 13.5988 36.4685H11.5305V37.7326C11.5305 37.7326 13.5172 37.6911 13.7022 37.7853C13.8056 37.838 13.8056 37.8907 13.909 38.1013C13.9918 38.2699 14.0814 38.1716 14.1158 38.1013V36.2052C14.0641 36.0998 13.9607 36.0998 13.909 36.2052Z"
+                    fill="#E4BC54"></path>
+                <path
+                    d="M16.7012 36.5398H14.7363C14.4468 36.5398 14.788 36.7811 14.9948 36.9018C15.0466 36.9018 14.9948 39.849 14.9948 41.607C14.9948 43.311 15.8221 43.6753 17.0631 43.9855C17.8904 44.1923 19.3382 44.1406 19.9587 43.9855C21.7684 43.4685 21.665 42.3309 21.7684 41.607C21.8201 40.1075 21.6335 37.0546 21.7684 36.9535C22.182 36.6432 22.0786 36.557 21.9752 36.5398C21.4926 36.5226 20.455 36.4984 20.1655 36.5398C19.8759 36.5812 20.1482 36.8328 20.3206 36.9535C20.3895 38.2116 20.3206 40.8314 20.3206 41.607C20.3206 42.2792 19.6484 42.7446 19.4416 42.6929C19.2348 42.6929 18.0972 42.764 17.5285 42.6929C17.0631 42.6347 16.4943 42.1758 16.4943 41.4519C16.4771 39.9524 16.453 36.9535 16.4943 36.9535C16.908 36.6225 16.8046 36.5398 16.7012 36.5398Z"
+                    fill="#E4BC54"></path>
+                <path
+                    d="M33.8159 36.5398H31.7477C31.4995 36.6225 31.8511 36.8156 32.0579 36.9018L32.1096 43.365C31.9545 43.727 31.4892 43.8304 31.696 43.9855H33.8159C34.0745 43.8304 33.6608 43.7787 33.5057 43.365L33.6091 36.9018C34.0228 36.6949 33.9194 36.5743 33.8159 36.5398Z"
+                    fill="#E4BC54"></path>
+                <path
+                    d="M64.3744 36.5398H62.4095C62.12 36.5398 62.4612 36.7811 62.6681 36.9018C62.7198 36.9018 62.6681 39.849 62.6681 41.607C62.6681 43.311 63.4954 43.6753 64.7363 43.9855C65.5636 44.1923 67.0114 44.1406 67.6319 43.9855C69.4416 43.4685 69.3382 42.3309 69.4416 41.607C69.4933 40.1075 69.3067 37.0546 69.4416 36.9535C69.8552 36.6432 69.7518 36.557 69.6484 36.5398C69.1658 36.5226 68.1282 36.4984 67.8387 36.5398C67.5491 36.5812 67.8215 36.8328 67.9938 36.9535C68.0628 38.2116 67.9938 40.8314 67.9938 41.607C67.9938 42.2792 67.3216 42.7446 67.1148 42.6929C66.908 42.6929 65.7704 42.764 65.2017 42.6929C64.7363 42.6347 64.1675 42.1758 64.1675 41.4519C64.1503 39.9524 64.1262 36.9535 64.1675 36.9535C64.5812 36.6225 64.4778 36.5398 64.3744 36.5398Z"
+                    fill="#E4BC54"></path>
+                <path
+                    d="M75.881 40.2299C75.8674 40.2328 75.8557 40.2352 75.8462 40.2369L75.7968 40.2373L75.5185 40.239C75.2843 40.2403 74.9635 40.2419 74.6164 40.243C73.9184 40.2452 73.1262 40.2451 72.7144 40.2367L71.9491 40.2211V40.9866V43.2355H71.8979V37.2898H75.9177C76.3514 37.406 76.8215 37.6916 76.9333 38.1613C77.0771 38.7653 77.007 39.284 76.6493 39.761C76.4982 39.9624 76.2937 40.0859 76.1065 40.1602C76.0148 40.1966 75.9348 40.218 75.881 40.2299Z"
+                    stroke="#E4BC54"
+                    stroke-width="1.5"></path>
+                <path
+                    d="M28.0362 43.2355H24.1692C24.1846 42.3952 24.1748 40.8539 24.1653 39.3722C24.1606 38.6315 24.156 37.9057 24.1546 37.2898H28.0507C28.0497 37.2898 28.0505 37.29 28.0531 37.2905C28.0695 37.2938 28.1589 37.3116 28.3316 37.3968C28.5099 37.4847 28.7118 37.6116 28.9054 37.7538C29.0992 37.8961 29.2647 38.0392 29.3737 38.1499C29.401 38.1776 29.4214 38.2 29.436 38.2168C29.4579 38.2758 29.4873 38.3321 29.5237 38.3844C29.6228 38.5266 29.7298 38.7898 29.8068 39.172C29.8813 39.5417 29.9171 39.9696 29.9112 40.3965C29.9053 40.8245 29.8577 41.228 29.778 41.5511C29.6919 41.9 29.5924 42.0559 29.5553 42.093C29.5162 42.1324 29.4815 42.176 29.4519 42.223C29.3011 42.4627 29.0011 42.7309 28.6533 42.9471C28.4864 43.0508 28.3282 43.1302 28.2007 43.1811C28.0875 43.2264 28.0358 43.2342 28.036 43.2354C28.036 43.2355 28.0361 43.2355 28.0362 43.2355Z"
+                    stroke="#E4BC54"
+                    stroke-width="1.5"
+                    stroke-miterlimit="4.2899"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                <rect
+                    x="35.6517"
+                    y="37.083"
+                    width="6.35936"
+                    height="6.25595"
+                    rx="3.12797"
+                    stroke="#E4BC54"
+                    stroke-width="1.5"></rect>
+                <rect
+                    x="54.3694"
+                    y="37.083"
+                    width="6.35936"
+                    height="6.25595"
+                    rx="3.12797"
+                    stroke="#E4BC54"
+                    stroke-width="1.5"></rect>
+            </svg>
+        </a>
+        <!-- menu button -->
+        <button
+            class="nav-btn-menu column flex center"
+            aria-label="Toggle menu"
+            aria-controls="navbar-menu"
+        >
+            <span
+                class="nav-btn-menu-icon-bar relative nav-btn-menu-icon-bar-top"
+            >
+                <span
+                    class="nav-btn-menu-icon-crust nav-btn-menu-icon-crust-top"
+                >
+                </span>
+            </span>
+            <span
+                class="nav-btn-menu-icon-bar relative nav-btn-menu-icon-bar-bottom"
+            >
+                <span
+                    class="nav-btn-menu-icon-crust nav-btn-menu-icon-crust-bottom"
+                >
+                </span>
+            </span>
+        </button>
+    </div>
+    <div class="navbar-menu column fixed width100 flex" id="navbar-menu">
+        <div>
+            <div class="navbar-menu-caption"><h3>Menu</h3></div>
+            <nav class="navbar-list column flex">
+                {
+                    navItems.map((item) => (
+                        <a class="navbar-link" href={item.href}>
+                            <span
+                                class="navbar-link-title"
+                                data-text={item.label}
+                            >
+                                {item.label}
+                            </span>
+                        </a>
+                    ))
+                }
+            </nav>
+        </div>
+        <div class="menu-bottom">
+            <div class="navbar-menu-caption">
+                <h3>Get in touch</h3>
+            </div>
+            <div class="menu-cta">
+                <a class="menu-contact -underline relative" href="mailto:info@studiosoup.in">
+                    info@studiosoup.in
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+<style>
+    header {
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.8);
+        -webkit-backdrop-filter: var(--filter-header);
+        backdrop-filter: var(--filter-header);
+        z-index: 9999;
+    }
+    header.transparent,.transparent .navbar-menu {
+        background-color: transparent; /* adjust for darker video */
+    }
+    .header-animation {
+        transition:
+            transform 0.5s ease,
+            opacity 0.5s ease;
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    .header-animation.visible {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    .navbar {
+        padding: calc(var(--space-gap-xs) * 4) calc(var(--space-gap-xs) * 4);
+        
+    }
+    .left-space {
+        width: 50%;
+    }
+    .brand-logo {
+        opacity: 1;
+        display: inline-block;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .brand-logo svg {
+        height: 60px;
+        vertical-align: middle;
+        max-width: 100%;
+    }
+    @media (max-width: 480px){
+        .brand-logo svg{
+            height: 48px;
+        }
+    }
+    .nav-btn-menu {
+        align-items: center;
+        gap: .5rem;
+        opacity: 0.8;
+        z-index: 3;
+        width: 70px;
+        height: 70px;
+        cursor: pointer;
+        transition: opacity 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+    .nav-btn-menu.active {
+        gap: 0;
+        transition: opacity 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+    .nav-btn-menu-icon-bar {
+        width: var(--space-gap-lg);
+    }
+    .nav-btn-menu-icon-bar-top {
+        transition:
+            transform 0.1806s cubic-bezier(0.04, 0.04, 0.12, 0.96),
+            -webkit-transform 0.1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+        transform: none;
+        z-index: 4;
+    }
+    .nav-btn-menu.active .nav-btn-menu-icon-bar-top {
+        transition:
+            transform 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s,
+            -webkit-transform 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+        transform: rotate(45deg);
+    }
+    .nav-btn-menu-icon-bar-bottom {
+        transition:
+            transform 0.1806s cubic-bezier(0.04, 0.04, 0.12, 0.96),
+            -webkit-transform 0.1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+        transform: none;
+    }
+    .nav-btn-menu.active .nav-btn-menu-icon-bar-bottom {
+        transform: rotate(-45deg);
+        transition:
+            transform 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s,
+            -webkit-transform 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+    }
+    .nav-btn-menu-icon-crust {
+        display: block;
+        height: 1.8px;
+        background: var(--color-white);
+    }
+    .nav-btn-menu-icon-crust-top {
+        transform: translateY(1px);
+        transition:
+            transform 0.1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) 0.1008s,
+            -webkit-transform 0.1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) 0.1008s;
+    }
+    .nav-btn-menu.active
+        .nav-btn-menu-icon-bar-top
+        .nav-btn-menu-icon-crust-top {
+        transition:
+            transform 0.1806s cubic-bezier(0.04, 0.04, 0.12, 0.96),
+            -webkit-transform 0.1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+    }
+    .nav-btn-menu-icon-crust-bottom {
+        transform: translateY(-1px);
+        transition:
+            transform 0.1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) 0.1008s,
+            -webkit-transform 0.1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) 0.1008s;
+    }
+    .nav-btn-menu.active
+        .nav-btn-menu-icon-bar-bottom
+        .nav-btn-menu-icon-crust-bottom {
+        transition:
+            transform 0.1806s cubic-bezier(0.04, 0.04, 0.12, 0.96),
+            -webkit-transform 0.1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+    }
+    @media (max-width: 768px) {
+        .nav-btn-menu {
+            width: 50px;
+            height: 50px;
+        }
+        .nav-btn-menu-icon-crust {
+            height: 1.8px;
+        }
+        .nav-btn-menu-icon-bar {
+            width: var(--space-gap-md); /* or define a smaller width */
+        }
+    }
+    @media (max-width: 480px) {
+        .nav-btn-menu {
+            width: 40px;
+            height: 40px;
+        }
+        .nav-btn-menu-icon-bar {
+            width: var(--space-gap-md);
+        }
+    }
+    /* Mobile Menu*/
+    .navbar-menu {
+        right: 0;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.8);
+        gap: var(--space-gap-lg);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.5s ease;
+        z-index: 999;
+        padding: calc(var(--space-gap-xs) * 14) calc(var(--space-gap-xs) * 14);
+    }
+    .navbar-menu.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    @media (min-width: 768px) {
+        .navbar-menu {
+            width: fit-content;
+            padding: 2rem 3rem;
+        }
+    }
+    .navbar-menu-caption h3 {
+        font-family: var(--font-secondary);
+        color: var(--color-nav-muted);
+        font: var(--font-md);
+        font-weight: var(--font-weight-medium);
+    }
+    .navbar-list {
+        gap: var(--space-gap-xs);
+    }
+    .navbar-link {
+        font-family: var(--font-primary);
+        font-weight: var(--font-weight-base);
+        font-size: var(--font-xl);
+        display: inline-block;
+    }
+    @media (max-width: 768px) {
+        .navbar-menu {
+            left: 0;
+        }
+        .navbar-menu-caption h3 {
+            font-size: var(--font-base);
+        }
+        .navbar-link {
+            font-size: var(--font-lg);
+        }
+    }
+    .navbar-link:hover {
+        color: var(--color-primary);
+    }
+    .navbar-menu-caption h3, .navbar-link{
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    .navbar-list > .navbar-link, .navbar-menu-caption > h3, .menu-cta >.menu-contact {
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+            transform 0.4s ease,
+            opacity 0.4s ease;
+    }
+    .active .navbar-list > .navbar-link, .active .navbar-menu-caption > h3,.active .menu-cta >.menu-contact {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .navbar-list > .navbar-link:nth-child(1) {
+        transition-delay: 0.2s;
+    }
+    .navbar-list > .navbar-link:nth-child(2) {
+        transition-delay: 0.3s;
+    }
+    .navbar-list > .navbar-link:nth-child(3) {
+        transition-delay: 0.4s;
+    }
+    .navbar-list > .navbar-link:nth-child(4) {
+        transition-delay: 0.5s;
+    }
+    .menu-contact{
+        font-family: var(--font-primary);
+        font-weight: var(--font-weight-semibold);
+        font-size: var(--font-lg);
+        color: var(--color-primary);
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    .menu-cta > .menu-contact{
+        transition-delay: 0.5s;
+    }
+    @media (max-width: 768px) {
+        .menu-contact{
+            font-size: var(--font-md);
+        }
+    }
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelector(".header-animation")?.classList.add("visible");
+        const menuButton = document.querySelector(".nav-btn-menu")
+        const menu = document.querySelector(".navbar-menu")
+
+        if(menuButton && menu){
+            menuButton.addEventListener("click", () => {
+                menu.classList.toggle('active');
+                menuButton.classList.toggle('active');
+            });
+        }else{
+            alert("variable missing")
+        }
+    });
+</script>

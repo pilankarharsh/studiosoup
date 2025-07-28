@@ -1,0 +1,334 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getMediaByTag } from "../../lib/queries";
+
+const aboutMedia = await getMediaByTag("about-hero");
+
+const team = [
+  {
+    name: "Sarah Johnson",
+    role: "Lead Designer",
+    image: "/assets/images/team1.webp",
+    description: "With over 10 years of experience in interior design, Sarah brings creativity and innovation to every project."
+  },
+  {
+    name: "Michael Chen",
+    role: "Construction Manager",
+    image: "/assets/images/team2.webp", 
+    description: "Michael ensures every project is executed with precision and quality, from concept to completion."
+  },
+  {
+    name: "Priya Sharma",
+    role: "Project Coordinator",
+    image: "/assets/images/team3.webp",
+    description: "Priya manages client relationships and ensures smooth communication throughout the design process."
+  }
+];
+
+const stats = [
+  { number: "150+", label: "Projects Completed" },
+  { number: "50+", label: "Happy Clients" },
+  { number: "8", label: "Years Experience" },
+  { number: "100%", label: "Client Satisfaction" }
+];
+---
+
+<Layout
+  title="About Studio Soup - Interior Design & Construction Studio in Goa"
+  description="Learn about Studio Soup's journey, our team of experienced designers and builders, and our commitment to creating beautiful, functional spaces in Goa."
+>
+  <!-- Hero Section -->
+  <section class="about-hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Our Story</h1>
+      <p class="hero-subtitle">
+        We believe every space has a story to tell, and we're here to help you tell yours.
+      </p>
+    </div>
+    {aboutMedia?.url && (
+      <div class="hero-image">
+        <img src={aboutMedia.url} alt="Studio Soup team working on a project" />
+      </div>
+    )}
+  </section>
+
+  <!-- Mission Section -->
+  <section class="mission-section">
+    <div class="container">
+      <div class="mission-content">
+        <h2>Our Mission</h2>
+        <p>
+          At Studio Soup, we're passionate about creating spaces that not only look beautiful 
+          but also function perfectly for your lifestyle. We believe that great design should 
+          be accessible to everyone, and we work closely with our clients to understand their 
+          needs, preferences, and budget.
+        </p>
+        <p>
+          Our approach combines creativity with practicality, ensuring that every project we 
+          undertake is both aesthetically pleasing and highly functional. From concept to 
+          completion, we handle every aspect of your project with care and attention to detail.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        {stats.map(({ number, label }) => (
+          <div class="stat-item">
+            <h3 class="stat-number">{number}</h3>
+            <p class="stat-label">{label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team-section">
+    <div class="container">
+      <h2>Meet Our Team</h2>
+      <div class="team-grid">
+        {team.map(({ name, role, image, description }) => (
+          <div class="team-member">
+            <img src={image} alt={`${name} - ${role}`} class="member-image" />
+            <div class="member-info">
+              <h3 class="member-name">{name}</h3>
+              <p class="member-role">{role}</p>
+              <p class="member-description">{description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Values Section -->
+  <section class="values-section">
+    <div class="container">
+      <h2>Our Values</h2>
+      <div class="values-grid">
+        <div class="value-item">
+          <h3>Quality</h3>
+          <p>We never compromise on quality, using the best materials and techniques to ensure lasting results.</p>
+        </div>
+        <div class="value-item">
+          <h3>Innovation</h3>
+          <p>We stay ahead of design trends and incorporate innovative solutions to create unique spaces.</p>
+        </div>
+        <div class="value-item">
+          <h3>Transparency</h3>
+          <p>We believe in clear communication and transparent pricing throughout the entire process.</p>
+        </div>
+        <div class="value-item">
+          <h3>Sustainability</h3>
+          <p>We prioritize eco-friendly materials and sustainable practices in all our projects.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .about-hero {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    padding: 4rem 0;
+    background: linear-gradient(135deg, var(--color-black) 0%, var(--color-gray-900) 100%);
+  }
+
+  .hero-content {
+    flex: 1;
+    padding: 0 2rem;
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--color-white);
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--color-gray-300);
+    line-height: 1.6;
+  }
+
+  .hero-image {
+    flex: 1;
+    padding: 0 2rem;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .mission-section {
+    padding: 4rem 0;
+    background: var(--color-white);
+    color: var(--color-black);
+  }
+
+  .mission-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--color-black);
+  }
+
+  .mission-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: var(--color-gray-700);
+  }
+
+  .stats-section {
+    padding: 4rem 0;
+    background: var(--color-gray-900);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-white);
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    font-size: 1.1rem;
+    color: var(--color-gray-300);
+  }
+
+  .team-section {
+    padding: 4rem 0;
+    background: var(--color-white);
+    color: var(--color-black);
+  }
+
+  .team-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--color-black);
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .team-member {
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+
+  .team-member:hover {
+    transform: translateY(-5px);
+  }
+
+  .member-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+  }
+
+  .member-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-black);
+  }
+
+  .member-role {
+    font-size: 1rem;
+    color: var(--color-gray-600);
+    margin-bottom: 1rem;
+  }
+
+  .member-description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--color-gray-700);
+  }
+
+  .values-section {
+    padding: 4rem 0;
+    background: var(--color-gray-900);
+  }
+
+  .values-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--color-white);
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .value-item {
+    padding: 2rem;
+    background: var(--color-gray-800);
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .value-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-white);
+  }
+
+  .value-item p {
+    color: var(--color-gray-300);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .about-hero {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+    }
+
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .team-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .values-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style> 

@@ -1,22 +1,123 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../assets/master.css";
+import "../assets/style.css";
+import "../assets/variables.css";
+
+const {
+  title = "Top Interior Designers in Goa | Studiosoup – Homes, Villas & Commercial Spaces",
+  description = "Studio Soup is an interior design and construction studio based in Goa. We specialize in crafting residential, villa, and commercial interiors with end-to-end execution. Our process is collaborative, and we source the best local materials to deliver thoughtful, high-quality spaces. Contact us for a tailored experience.",
+} = Astro.props;
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+  <!--
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+__      __ __     __  _   _ _______  _   _  _____   _ 
+\ \    / / \ \   / / | \ | |__   __|| | | ||  __ \ | |
+ \ \  / /   \ \_/ /  |  \| |  | |   | |_| || |__) || |
+  \ \/ /     \   /   | . ` |  | |   |  _  ||  _  / | |
+   \  /       | |    | |\  |  | |   | | | || | \ \ | |
+    \/        |_|    |_| \_|  |_|   |_| |_||_|  \_\|_|
+
+  Built by Vynthri – for those who build even when no one’s watching.
+  It’s not just a website; it’s an experience worth exploring — even in our code.
+
+  Curious minds → https://vynthri.web.app
+
+  Keep building, keep exploring.
+  -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content="'interior designer Goa, interior design Goa, villa interior design Goa, home interior designers Goa, commercial interior design Goa, turnkey interiors Goa, bespoke interiors Goa, construction company Goa, residential interior design Goa, local material interiors Goa'"
+    />
+    <meta name="author" content="Studio Soup" />
+    <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#000000" />
+
+    <link rel="canonical" href="https://www.studiosoup.in/" />
+    <link rel="alternate" href="https://studiosoup.web.app/" />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/images/icon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/images/icon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/images/icon/favicon-16x16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/assets/images/icon/android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="/assets/images/icon/android-chrome-512x512.png"
+    />
+    <link
+      rel="shortcut icon"
+      href="/assets/images/icon/favicon.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="mask-icon"
+      href="/assets/images/icon/mask-icon.svg"
+      color="#000000"
+    />
+    <link rel="manifest" href="/assets/site.webmanifest" />
+
+    <meta name="language" content="en" />
+    <meta name="geo.region" content="IN-GA" />
+    <meta name="geo.placename" content="Goa" />
+    <meta name="geo.position" content="15.2993;74.1240" />
+    <meta name="ICBM" content="15.2993,74.1240" />
+
+    <meta
+      property="og:title"
+      content="Studio Soup | Interior Design & Construction Studio in Goa"
+    />
+    <meta
+      property="og:description"
+      content="Studio Soup crafts spaces that feel both beautiful and functional. From concept to construction, we design and build homes, villas, and commercial spaces across Goa. Get a free estimate today."
+    />
+    <meta
+      property="og:image"
+      content="https://studiosoup.in/assets/images/share-preview.webp"
+    />
+    <meta property="og:url" content="https://studiosoup.in/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Studio Soup" />
+    <meta property="og:locale" content="en_IN" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="msapplication-TileColor" content="#000000" />
+  </head>
+  <body class="overflow-x-hidden">
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,386 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const contactInfo = {
+  address: "123 Design Street, Panaji, Goa 403001",
+  phone: "+91 98765 43210",
+  email: "hello@studiosoup.in",
+  hours: "Monday - Friday: 9:00 AM - 6:00 PM"
+};
+
+const services = [
+  "Interior Design Consultation",
+  "Space Planning",
+  "Construction & Execution",
+  "Renovation & Remodeling",
+  "Commercial Interior Design",
+  "Villa Design"
+];
+---
+
+<Layout
+  title="Contact Studio Soup - Interior Design & Construction Studio in Goa"
+  description="Get in touch with Studio Soup for your interior design and construction needs in Goa. We offer free consultations and estimates for all projects."
+>
+  <!-- Hero Section -->
+  <section class="contact-hero">
+    <div class="container">
+      <h1 class="hero-title">Let's Start Your Project</h1>
+      <p class="hero-subtitle">
+        Ready to transform your space? Get in touch with us for a free consultation 
+        and estimate. We're here to bring your vision to life.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section class="contact-form-section">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Contact Form -->
+        <div class="form-container">
+          <h2>Send us a Message</h2>
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" />
+            </div>
+            
+            <div class="form-group">
+              <label for="service">Service Interested In</label>
+              <select id="service" name="service">
+                <option value="">Select a service</option>
+                {services.map(service => (
+                  <option value={service}>{service}</option>
+                ))}
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="budget">Project Budget</label>
+              <select id="budget" name="budget">
+                <option value="">Select budget range</option>
+                <option value="under-5lakhs">Under ₹5 Lakhs</option>
+                <option value="5-10lakhs">₹5-10 Lakhs</option>
+                <option value="10-20lakhs">₹10-20 Lakhs</option>
+                <option value="20-50lakhs">₹20-50 Lakhs</option>
+                <option value="above-50lakhs">Above ₹50 Lakhs</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Project Details *</label>
+              <textarea id="message" name="message" rows="5" required 
+                placeholder="Tell us about your project, requirements, and timeline..."></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">
+              Send Message
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </form>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="contact-info">
+          <h2>Get in Touch</h2>
+          
+          <div class="info-item">
+            <div class="info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M21 10C21 17 12 23 12 23S3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="info-content">
+              <h3>Visit Us</h3>
+              <p>{contactInfo.address}</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M22 16.92V19.92C22.0011 20.1985 21.9441 20.4742 21.8325 20.7294C21.7209 20.9845 21.5573 21.2136 21.3521 21.4019C21.1469 21.5902 20.9046 21.7335 20.6407 21.8227C20.3769 21.9119 20.0973 21.9454 19.82 21.92C16.7428 21.5856 13.787 20.5341 11.19 18.85C8.77382 17.3146 6.72533 15.2661 5.18999 12.85C3.49997 10.2412 2.44824 7.27099 2.11999 4.18C2.09461 3.90347 2.12787 3.62476 2.21649 3.36162C2.30512 3.09849 2.44756 2.85669 2.63476 2.65182C2.82196 2.44695 3.04976 2.28338 3.30351 2.17147C3.55726 2.05956 3.83159 2.00177 4.10999 2H7.10999C7.59522 1.99522 8.06577 2.16708 8.43376 2.48353C8.80175 2.79999 9.04201 3.23945 9.10999 3.72C9.23662 4.68007 9.47144 5.62273 9.80999 6.53C9.94454 6.88792 9.97345 7.27691 9.89381 7.64921C9.81417 8.0215 9.62985 8.36029 9.35999 8.62L8.08999 9.89C9.51355 12.4136 11.5864 14.4865 14.11 15.91L15.38 14.64C15.6397 14.3701 15.9785 14.1858 16.3508 14.1062C16.7231 14.0265 17.1121 14.0555 17.47 14.19C18.3773 14.5286 19.3199 14.7634 20.28 14.89C20.7658 14.9585 21.2094 15.2032 21.5265 15.5775C21.8437 15.9518 22.0122 16.4296 22 16.92Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="info-content">
+              <h3>Call Us</h3>
+              <p><a href={`tel:${contactInfo.phone}`}>{contactInfo.phone}</a></p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M22 6L12 13L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="info-content">
+              <h3>Email Us</h3>
+              <p><a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a></p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2V6M12 18V22M4.93 4.93L7.76 7.76M16.24 16.24L19.07 19.07M2 12H6M18 12H22M4.93 19.07L7.76 16.24M16.24 7.76L19.07 4.93" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="info-content">
+              <h3>Business Hours</h3>
+              <p>{contactInfo.hours}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section class="map-section">
+    <div class="container">
+      <h2>Find Us</h2>
+      <div class="map-container">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3848.5!2d73.8278!3d15.4909!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTXCsDI5JzI3LjQiTiA3M8KwNDknNDAuMCJF!5e0!3m2!1sen!2sin!4v1234567890"
+          width="100%" 
+          height="400" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .contact-hero {
+    background: linear-gradient(135deg, var(--color-black) 0%, var(--color-gray-900) 100%);
+    padding: 4rem 0;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-white);
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--color-gray-300);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .contact-form-section {
+    padding: 4rem 0;
+    background: var(--color-white);
+    color: var(--color-black);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .form-container h2,
+  .contact-info h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--color-black);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-group label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-gray-700);
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 0.75rem;
+    border: 2px solid var(--color-gray-200);
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-black);
+  }
+
+  .submit-btn {
+    background: var(--color-black);
+    color: var(--color-white);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .submit-btn:hover {
+    background: var(--color-gray-800);
+  }
+
+  .contact-info {
+    background: var(--color-gray-50);
+    padding: 2rem;
+    border-radius: 8px;
+  }
+
+  .info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .info-icon {
+    color: var(--color-black);
+    flex-shrink: 0;
+  }
+
+  .info-content h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-black);
+  }
+
+  .info-content p {
+    color: var(--color-gray-600);
+    line-height: 1.5;
+  }
+
+  .info-content a {
+    color: var(--color-black);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .info-content a:hover {
+    color: var(--color-gray-600);
+  }
+
+  .map-section {
+    padding: 4rem 0;
+    background: var(--color-gray-100);
+  }
+
+  .map-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--color-black);
+  }
+
+  .map-container {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+    }
+
+    .contact-info {
+      padding: 1.5rem;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contactForm');
+    
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      // Get form data
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData);
+      
+      // Show loading state
+      const submitBtn = form.querySelector('.submit-btn');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = 'Sending...';
+      submitBtn.disabled = true;
+      
+      try {
+        // Here you would typically send the data to your backend
+        // For now, we'll just show a success message
+        console.log('Form data:', data);
+        
+        // Simulate API call
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        
+        // Show success message
+        alert('Thank you for your message! We\'ll get back to you soon.');
+        form.reset();
+        
+      } catch (error) {
+        console.error('Error submitting form:', error);
+        alert('Sorry, there was an error sending your message. Please try again.');
+      } finally {
+        // Reset button state
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }
+    });
+  });
+</script> 

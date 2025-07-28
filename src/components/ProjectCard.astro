@@ -1,0 +1,47 @@
+---
+interface Props {
+  imageSrc: string;
+  imageAlt: string;
+  title?: string;
+  description?: string;
+}
+
+const { imageSrc, imageAlt, title, description } = Astro.props;
+---
+
+<div class="project-card">
+  <img src={imageSrc} alt={imageAlt} class="project-image" />
+  {title && <h3 class="project-title">{title}</h3>}
+  {description && <p class="project-description">{description}</p>}
+</div>
+
+<style>
+  .project-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+
+  .project-card:hover {
+    transform: scale(1.02);
+  }
+
+  .project-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .project-title {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  .project-description {
+    margin-top: 0.5rem;
+    color: var(--color-gray-400);
+    font-size: 0.9rem;
+  }
+</style> 

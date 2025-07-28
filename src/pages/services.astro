@@ -1,0 +1,618 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getMediaByTag } from "../../lib/queries";
+
+const servicesMedia = await getMediaByTag("services-hero");
+
+const services = [
+  {
+    id: 1,
+    title: "Interior Design Consultation",
+    description: "Comprehensive design consultation to understand your vision, lifestyle, and requirements.",
+    features: [
+      "Initial consultation and site visit",
+      "Space planning and layout design",
+      "Material and color selection",
+      "3D visualization and renderings",
+      "Detailed project timeline"
+    ],
+    icon: "🎨",
+    duration: "1-2 weeks",
+    startingPrice: "₹25,000"
+  },
+  {
+    id: 2,
+    title: "Space Planning & Design",
+    description: "Expert space planning to maximize functionality and create harmonious living environments.",
+    features: [
+      "Detailed floor plan analysis",
+      "Furniture layout optimization",
+      "Traffic flow planning",
+      "Storage solutions",
+      "Lighting design integration"
+    ],
+    icon: "📐",
+    duration: "2-3 weeks",
+    startingPrice: "₹50,000"
+  },
+  {
+    id: 3,
+    title: "Construction & Execution",
+    description: "End-to-end construction services with quality craftsmanship and attention to detail.",
+    features: [
+      "Structural modifications",
+      "Electrical and plumbing work",
+      "Flooring and wall treatments",
+      "Custom carpentry",
+      "Quality control and supervision"
+    ],
+    icon: "🏗️",
+    duration: "3-6 months",
+    startingPrice: "₹2,500/sq ft"
+  },
+  {
+    id: 4,
+    title: "Renovation & Remodeling",
+    description: "Transform existing spaces with modern upgrades while preserving character and functionality.",
+    features: [
+      "Kitchen and bathroom remodeling",
+      "Room additions and extensions",
+      "Structural improvements",
+      "Energy-efficient upgrades",
+      "Heritage preservation"
+    ],
+    icon: "🔨",
+    duration: "2-4 months",
+    startingPrice: "₹3,000/sq ft"
+  },
+  {
+    id: 5,
+    title: "Commercial Interior Design",
+    description: "Professional commercial spaces designed for productivity, brand identity, and customer experience.",
+    features: [
+      "Office and retail design",
+      "Restaurant and hospitality",
+      "Brand integration",
+      "Employee well-being focus",
+      "Sustainable commercial solutions"
+    ],
+    icon: "🏢",
+    duration: "4-8 weeks",
+    startingPrice: "₹75,000"
+  },
+  {
+    id: 6,
+    title: "Villa & Luxury Home Design",
+    description: "Bespoke luxury home designs that reflect your lifestyle and create lasting impressions.",
+    features: [
+      "Custom villa design",
+      "Luxury material selection",
+      "Smart home integration",
+      "Landscape design",
+      "Premium finishes and fixtures"
+    ],
+    icon: "🏡",
+    duration: "6-12 months",
+    startingPrice: "₹5,000/sq ft"
+  }
+];
+
+const process = [
+  {
+    step: "01",
+    title: "Discovery & Consultation",
+    description: "We begin with a comprehensive consultation to understand your vision, requirements, and budget."
+  },
+  {
+    step: "02",
+    title: "Concept Development",
+    description: "Our team creates detailed concepts, 3D visualizations, and material selections for your approval."
+  },
+  {
+    step: "03",
+    title: "Detailed Planning",
+    description: "We develop comprehensive project plans, timelines, and budgets with transparent communication."
+  },
+  {
+    step: "04",
+    title: "Execution & Supervision",
+    description: "Our skilled team executes the project with quality craftsmanship and regular progress updates."
+  },
+  {
+    step: "05",
+    title: "Final Delivery",
+    description: "We ensure everything meets our high standards before handing over your completed space."
+  }
+];
+---
+
+<Layout
+  title="Our Services - Interior Design & Construction Studio in Goa"
+  description="Explore Studio Soup's comprehensive interior design and construction services in Goa. From consultation to execution, we handle every aspect of your project."
+>
+  <!-- Hero Section -->
+  <section class="services-hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">Our Services</h1>
+        <p class="hero-subtitle">
+          From initial consultation to final execution, we provide comprehensive 
+          interior design and construction services tailored to your needs.
+        </p>
+      </div>
+      {servicesMedia?.url && (
+        <div class="hero-image">
+          <img src={servicesMedia.url} alt="Studio Soup interior design services" />
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="services-section">
+    <div class="container">
+      <h2 class="section-title">What We Offer</h2>
+      <div class="services-grid">
+        {services.map(service => (
+          <div class="service-card">
+            <div class="service-icon">{service.icon}</div>
+            <h3 class="service-title">{service.title}</h3>
+            <p class="service-description">{service.description}</p>
+            
+            <div class="service-features">
+              <h4>What's Included:</h4>
+              <ul>
+                {service.features.map(feature => (
+                  <li>{feature}</li>
+                ))}
+              </ul>
+            </div>
+            
+            <div class="service-meta">
+              <div class="meta-item">
+                <span class="meta-label">Duration:</span>
+                <span class="meta-value">{service.duration}</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Starting from:</span>
+                <span class="meta-value">{service.startingPrice}</span>
+              </div>
+            </div>
+            
+            <a href="/contact" class="service-cta">
+              Get Quote
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="process-section">
+    <div class="container">
+      <h2 class="section-title">Our Process</h2>
+      <div class="process-timeline">
+        {process.map((step, index) => (
+          <div class="process-step">
+            <div class="step-number">{step.step}</div>
+            <div class="step-content">
+              <h3>{step.title}</h3>
+              <p>{step.description}</p>
+            </div>
+            {index < process.length - 1 && <div class="step-connector"></div>}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="why-choose-section">
+    <div class="container">
+      <h2 class="section-title">Why Choose Studio Soup?</h2>
+      <div class="reasons-grid">
+        <div class="reason-card">
+          <div class="reason-icon">⭐</div>
+          <h3>Experience & Expertise</h3>
+          <p>8+ years of experience in interior design and construction across Goa.</p>
+        </div>
+        <div class="reason-card">
+          <div class="reason-icon">🤝</div>
+          <h3>Transparent Communication</h3>
+          <p>Regular updates, clear timelines, and honest pricing throughout the project.</p>
+        </div>
+        <div class="reason-card">
+          <div class="reason-icon">🎯</div>
+          <h3>Quality Assurance</h3>
+          <p>We never compromise on quality, using the best materials and techniques.</p>
+        </div>
+        <div class="reason-card">
+          <div class="reason-icon">🌱</div>
+          <h3>Sustainable Practices</h3>
+          <p>Eco-friendly materials and sustainable design solutions for a better future.</p>
+        </div>
+        <div class="reason-card">
+          <div class="reason-icon">💡</div>
+          <h3>Innovative Solutions</h3>
+          <p>Creative problem-solving and innovative design approaches for unique spaces.</p>
+        </div>
+        <div class="reason-card">
+          <div class="reason-icon">📞</div>
+          <h3>Post-Service Support</h3>
+          <p>Ongoing support and maintenance services after project completion.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to Start Your Project?</h2>
+        <p>
+          Let's discuss your vision and create something extraordinary together. 
+          Get in touch for a free consultation and estimate.
+        </p>
+        <div class="cta-buttons">
+          <a href="/contact" class="cta-button primary">
+            Get Free Consultation
+          </a>
+          <a href="/projects" class="cta-button secondary">
+            View Our Work
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .services-hero {
+    background: linear-gradient(135deg, var(--color-black) 0%, var(--color-gray-900) 100%);
+    padding: 4rem 0;
+    color: var(--color-white);
+  }
+
+  .services-hero .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--color-gray-300);
+    line-height: 1.6;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .services-section {
+    padding: 4rem 0;
+    background: var(--color-white);
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--color-black);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+
+  .service-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-gray-200);
+    border-radius: 8px;
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .service-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .service-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--color-black);
+  }
+
+  .service-description {
+    color: var(--color-gray-600);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-features {
+    margin-bottom: 1.5rem;
+  }
+
+  .service-features h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-black);
+  }
+
+  .service-features ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .service-features li {
+    color: var(--color-gray-600);
+    padding: 0.25rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .service-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--color-black);
+    font-weight: bold;
+  }
+
+  .service-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: var(--color-gray-50);
+    border-radius: 4px;
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .meta-label {
+    font-size: 0.8rem;
+    color: var(--color-gray-500);
+  }
+
+  .meta-value {
+    font-weight: 600;
+    color: var(--color-black);
+  }
+
+  .service-cta {
+    background: var(--color-black);
+    color: var(--color-white);
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+
+  .service-cta:hover {
+    background: var(--color-gray-800);
+  }
+
+  .process-section {
+    padding: 4rem 0;
+    background: var(--color-gray-50);
+  }
+
+  .process-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .process-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    position: relative;
+  }
+
+  .step-number {
+    background: var(--color-black);
+    color: var(--color-white);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .step-content h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-black);
+  }
+
+  .step-content p {
+    color: var(--color-gray-600);
+    line-height: 1.6;
+  }
+
+  .step-connector {
+    position: absolute;
+    left: 25px;
+    top: 50px;
+    width: 2px;
+    height: 2rem;
+    background: var(--color-gray-300);
+  }
+
+  .why-choose-section {
+    padding: 4rem 0;
+    background: var(--color-white);
+  }
+
+  .reasons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .reason-card {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+
+  .reason-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .reason-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .reason-card h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--color-black);
+  }
+
+  .reason-card p {
+    color: var(--color-gray-600);
+    line-height: 1.6;
+  }
+
+  .cta-section {
+    padding: 4rem 0;
+    background: var(--color-black);
+    text-align: center;
+    color: var(--color-white);
+  }
+
+  .cta-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.1rem;
+    color: var(--color-gray-300);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-button {
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .cta-button.primary {
+    background: var(--color-white);
+    color: var(--color-black);
+  }
+
+  .cta-button.primary:hover {
+    background: var(--color-gray-100);
+  }
+
+  .cta-button.secondary {
+    background: transparent;
+    color: var(--color-white);
+    border: 2px solid var(--color-white);
+  }
+
+  .cta-button.secondary:hover {
+    background: var(--color-white);
+    color: var(--color-black);
+  }
+
+  @media (max-width: 768px) {
+    .services-hero .container {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .service-meta {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .process-step {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .step-connector {
+      display: none;
+    }
+
+    .reasons-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style> 

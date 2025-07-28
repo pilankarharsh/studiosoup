@@ -1,11 +1,339 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import "swiper/css";
+import { getMediaByTag } from "../../lib/queries";
+// Fetch media with error handling
+const [heroMedia, servicetMedia1, servicetMedia2, servicetMedia3, conversionMedia] = await Promise.allSettled([
+  getMediaByTag("hero-video"),
+  getMediaByTag("service-img-1"),
+  getMediaByTag("service-img-2"),
+  getMediaByTag("service-img-3"),
+  getMediaByTag("conversion-bg")
+]).then(results => results.map(result => result.status === 'fulfilled' ? result.value : null));
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const services = [
+    {
+        title: "Interior Designing",
+        img: servicetMedia1.url,
+        alt: "Interior Design",
+    },
+    {
+        title: "Construction & Execution",
+        img: servicetMedia2.url,
+        alt: "Construction Execution",
+    },
+    {
+        title: "Renovation & Remodeling",
+        img: servicetMedia3.url,
+        alt: "Renovation Remodeling",
+    },
+];
+const reasons = [
+    {
+        title: "Trusted Track Record",
+        description:
+            "We’ve delivered hundreds of projects — homes, offices, and commercial spaces — on time and with unwavering quality. Our reputation speaks through our repeat clients and referrals.",
+    },
+    {
+        title: "Clear Process. Constant Communication.",
+        description:
+            "From budget breakdowns to scope clarity and weekly updates, we ensure you’re never in the dark. Everything is transparent and aligned with your expectations.",
+    },
+    {
+        title: "Functional Beauty. Built to Last.",
+        description:
+            "We craft environments that look elegant, work seamlessly, and stand the test of time. Thoughtfully sustainable and engineered with care.",
+    },
+];
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+    title="Top Interior Designers in Goa | Studiosoup – Homes, Villas & Commercial Spaces"
+    description="Studio Soup is an interior design and construction studio based in Goa. We specialize in crafting residential, villa, and commercial interiors with end-to-end execution. Our process is collaborative, and we source the best local materials to deliver thoughtful, high-quality spaces. Contact us for a tailored experience."
+>
+    <!--Hero Section -->
+    <section class="hero-section relative">
+        <div class="hero-bg sticky overflow-hidden">
+            {
+                heroMedia?.url ? (
+                    <video
+                        loop
+                        playsinline
+                        autoplay
+                        disablepictureinpicture
+                        poster="/assets/images/hero-poster.webp"
+                        muted
+                    >
+                        <source src={heroMedia.url} type="video/mp4" />
+                    </video>
+                ) : (
+                    <img
+                        src="/assets/images/hero-poster.webp"
+                        alt="Studio Soup hero banner"
+                    />
+                )
+            }
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-title absolute flex width100 center">
+            <p class="hero-cap fadeup">WELCOME TO</p>
+            <h1 class="hero-brand fadeup">STUDIO SOUP</h1>
+        </div>
+        <div class="hero-description center sticky flex center">
+            <p class="fadeup">
+                we design and build spaces that are elegant,<br />
+                highly functional, and engineered for lasting reliability.<br />
+                <strong><a href="project-glimpses">explore more</a></strong>
+                <svg
+                    width="10"
+                    height="35"
+                    viewBox="0 0 15 47"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    style="margin-bottom: -5px;"
+                >
+                    <path
+                        d="M6.24994 2V0.75H8.74994V2H6.24994ZM8.74994 2V44.75H6.24994V2H8.74994ZM0.5 37.0403C5.29752 37.0403 8.75 41.7683 8.75 47H6.25C6.25 42.6113 3.43446 39.5403 0.5 39.5403V37.0403ZM6.25 47C6.25 41.7683 9.70244 37.0401 14.5 37.0401V39.5401C11.5656 39.5401 8.75 42.6112 8.75 47H6.25Z"
+                        fill="white"></path>
+                </svg>
+            </p>
+        </div>
+    </section>
+    <!--Project Section -->
+    <section class="project-glimpses-section" id="project-glimpses">
+        <div
+            class="project-glimpses-header width100 flex column relative center"
+        >
+            <span class="project-glimpses-header-text scroll-animate">
+                Forget the templates.
+            </span>
+            <span class="project-glimpses-header-text scroll-animate">
+                Let's reimagine exactly
+            </span>
+            <span class="project-glimpses-header-text scroll-animate">
+                what you need.
+            </span>
+        </div>
+        <div class="swiper scroll-animate">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide relative">
+                    <img src="/assets/images/project1.webp" alt="Interior design project showcase - Modern living room" />
+                </div>
+                <div class="swiper-slide relative">
+                    <img src="/assets/images/project2.webp" alt="Interior design project showcase - Contemporary kitchen design" />
+                </div>
+                <div class="swiper-slide relative">
+                    <img src="/assets/images/project3.webp" alt="Interior design project showcase - Luxury bedroom design" />
+                </div>
+                <div class="swiper-slide relative">
+                    <img src="/assets/images/project4.webp" alt="Interior design project showcase - Commercial space design" />
+                </div>
+                <div class="swiper-slide relative">
+                    <img src="/assets/images/project1.webp" alt="Interior design project showcase - Modern living room" />
+                </div>
+                <div class="swiper-slide relative">
+                    <img src="/assets/images/project2.webp" alt="Interior design project showcase - Contemporary kitchen design" />
+                </div>
+                <div class="swiper-slide relative">
+                    <img src="/assets/images/project3.webp" alt="Interior design project showcase - Luxury bedroom design" />
+                </div>
+                <div class="swiper-slide relative">
+                    <img src="/assets/images/project4.webp" alt="Interior design project showcase - Commercial space design" />
+                </div>
+            </div>
+        </div>
+        <a href="/projects" class="projects-button flex center scroll-animate">
+            View Our Projects
+            <svg
+                width="35"
+                height="10"
+                viewBox="0 0 47 15"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                style="margin-left: 10px;"
+                ><path
+                    d="M2 6.24994H0.75L0.75 8.74994L2 8.74994L2 6.24994ZM2 8.74994L44.75 8.74993V6.24993L2 6.24994L2 8.74994ZM37.0403 0.5C37.0403 5.29752 41.7683 8.75 47 8.75V6.25C42.6113 6.25 39.5403 3.43446 39.5403 0.5H37.0403ZM47 6.25C41.7683 6.25 37.0401 9.70244 37.0401 14.5H39.5401C39.5401 11.5656 42.6112 8.75 47 8.75V6.25Z"
+                    fill="white"></path></svg
+            >
+        </a>
+    </section>
+    <!--Service Section -->
+    <section class="service-section">
+        <div class="container flex column">
+            <div class="services-header scroll-animate">
+                <p>SERVICES</p>
+                <h2>
+                    What we can<br />
+                    do for you.
+                </h2>
+            </div>
+            <div class="services-grid flex width100">
+                {
+                    services.map(({ title, img, alt }) => (
+                        <div class="service-card flex column scroll-animate">
+                            <img src={img} alt={alt} class="width100" />
+                            <h3>{title}</h3>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+    <!--conversion Section -->
+    <section class="why-choose-us">
+        <div class="why-choose-us-header center">
+            <h2>Why should you<br />choose us</h2>
+        </div>
+
+        <div class="why-choose-us-caption flex center">
+            <p>everything you need. in one place</p>
+        </div>
+
+        <div class="reason-section flex">
+            <div class="reason-block flex width100 column">
+                {
+                    reasons.map(({ title, description }, index) => (
+                        <div
+                            class="reason-item flex scroll-animate"
+                            style={`animation-delay: ${0.3 * (index + 1)}s`}
+                        >
+                            <div class="reason-text">
+                                <h2>{title}</h2>
+                                <p>{description}</p>
+                            </div>
+                            <div class="stars flex">
+                                <span class="full">★</span>
+                                <span class="full">★</span>
+                                <span class="full">★</span>
+                                <span class="full">★</span>
+                                <span class="half">★</span>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+
+        <div
+            class="cta-section flex column center width100 overflow-hidden"
+            style={`background-image: url('${conversionMedia?.url || "/fallback.jpg"}')`}
+        >
+            <div class="cta-container relative flex column center scroll-animate">
+                <div class="cta-header">Let's build your space</div>
+                <a href="/contact" class="cta-button center">
+                    <span>
+                        GET FREE ESTIMATE
+                        <svg
+                            width="35"
+                            height="10"
+                            viewBox="0 0 47 15"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            style="margin-left: 10px;"
+                        >
+                            <path
+                                d="M2 6.24994H0.75L0.75 8.74994L2 8.74994L2 6.24994ZM2 8.74994L44.75 8.74993V6.24993L2 6.24994L2 8.74994ZM37.0403 0.5C37.0403 5.29752 41.7683 8.75 47 8.75V6.25C42.6113 6.25 39.5403 3.43446 39.5403 0.5H37.0403ZM47 6.25C41.7683 6.25 37.0401 9.70244 37.0401 14.5H39.5401C39.5401 11.5656 42.6112 8.75 47 8.75V6.25Z"
+                                fill="white"></path>
+                        </svg>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!--Hero Section Script -->
+    <script>
+        import Header from "../components/Header.astro";
+        document.addEventListener("DOMContentLoaded", () => {
+            const heroSection = document.querySelector(".hero-section");
+            const handleScroll = () => {
+                if (heroSection) {
+                    heroSection.classList.toggle(
+                        "scrolled",
+                        window.scrollY > window.innerHeight * 0.6,
+                    );
+                }
+            };
+            window.addEventListener("scroll", handleScroll);
+
+            const header = document.querySelector("header");
+
+            const isHomePage = window.location.pathname === "/";
+
+            if (isHomePage && heroSection && header) {
+                const handleHeaderScroll = () => {
+                    const heroBottom =
+                        heroSection.offsetTop + heroSection.offsetHeight;
+                    const scrollY = window.scrollY;
+
+                    if (scrollY < heroBottom - 100) {
+                        header.classList.add("transparent");
+                    } else {
+                        header.classList.remove("transparent");
+                    }
+                };
+
+                // Initial check
+                handleHeaderScroll();
+
+                // Attach scroll listener
+                window.addEventListener("scroll", handleHeaderScroll);
+            }
+        });
+    </script>
+    <!--Project Section Script -->
+    <script>
+        import Swiper from "swiper/bundle";
+        document.addEventListener("DOMContentLoaded", () => {
+            /* Image Slider */
+            new Swiper(".swiper", {
+                spaceBetween: 20,
+                slidesPerView: 1,
+                speed: 6500,
+                loop: true,
+                autoplay: {
+                    delay: 0,
+                    disableOnInteraction: false,
+                },
+                allowTouchMove: false,
+                breakpoints: {
+                    // when window width is >= 320px
+                    0: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    }, // when window width is >= 480px
+                    768: {
+                        slidesPerView: 4,
+                        spaceBetween: 30,
+                    },
+                    // when window width is >= 640px
+                    992: {
+                        slidesPerView: 5,
+                        spaceBetween: 40,
+                    },
+                },
+            });
+        });
+    </script>
+    <!--Project Section Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            /* scroll animation */
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("scrolled");
+                        }
+                    });
+                },
+                {
+                    threshold: 0.2, // Trigger when 20% of the element is visible
+                },
+            );
+
+            const texts = document.querySelectorAll(".scroll-animate");
+            texts.forEach((text) => observer.observe(text));
+        });
+    </script>
 </Layout>

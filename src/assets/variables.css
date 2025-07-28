@@ -1,0 +1,59 @@
+:root {
+    /* Fonts */
+    --font-primary: 'Avalon', sans-serif;
+    --font-secondary: 'Quincy CF', serif;
+    --font-display: 'Denton', sans-serif;
+
+    /* Font Sizes */
+    --font-xs: .75rem;
+    --font-sm: 0.95rem;
+    --font-sm--line-height: calc(1.25/.95);
+    --font-base: 1rem;
+    --font-base--line-height: 1.5;
+    --font-md: 1.5rem;
+    --font-md--line-height: calc(1.75/1.5);
+    --font-lg: 2rem;
+    --font-lg--line-height: calc(2.75/2);
+    --font-xl: 3.2rem;
+    --font-xl--line-height: calc(3.75/3.25);
+    --font-xxl: 8rem;
+    --font-xxl--line-height: calc(9/8);
+
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-black: 800;
+
+    /* Colors */
+    --color-primary: #EBAF2F;
+    --color-black: #101010;
+    --color-white: #f8f8f8;
+    --color-grey: #eee;
+    --color-nav-muted: rgba(255, 255, 255, 0.6);
+    --color-hero-gradient-start: #ffae00;
+    --color-hero-gradient-end: #ffe09e;
+    --color-vynthri: linear-gradient(90deg, #FF007A, #FF8A00, #FFE500, #e3acff);
+
+    /* Shadows */
+    --shadow-strong: drop-shadow(0 4px 12px rgba(0, 0, 0, 1));
+    --shadow-light: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+    --shadow-subtle: drop-shadow(0 0 30px rgba(255, 255, 255, 0.3));
+
+    /* Animations */
+    --ease-out: cubic-bezier(0,0,.2,1);
+    --ease-in-out: cubic-bezier(.4,0,.2,1);
+    --transition-fast: 0.3s ease;
+    --transition-mid: 0.5s ease;
+    /* Dimentions */
+    --space-gap-xs: 0.25rem;
+    --space-gap-sm: 1.25rem;
+    --space-gap-md: 2rem;
+    --space-gap-lg: 2.5rem;
+    --space-gap-xl:3.75rem;
+    --space-gap-xxl:6rem;
+
+    /* Blur/Filter */
+    --blur-md: 12px;
+    --filter-header: saturate(180%) var(--blur-md);
+}

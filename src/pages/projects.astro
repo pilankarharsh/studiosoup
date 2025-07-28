@@ -1,0 +1,485 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+
+const projects = [
+  {
+    id: 1,
+    title: "Modern Villa Design",
+    category: "Residential",
+    location: "Panaji, Goa",
+    image: "/assets/images/project1.webp",
+    description: "A contemporary villa design featuring open-plan living spaces, minimalist aesthetics, and sustainable materials.",
+    features: ["Open-plan living", "Minimalist design", "Sustainable materials", "Smart home integration"],
+    area: "3,500 sq ft",
+    duration: "6 months"
+  },
+  {
+    id: 2,
+    title: "Luxury Apartment Interior",
+    category: "Residential",
+    location: "Margao, Goa",
+    image: "/assets/images/project2.webp",
+    description: "Elegant apartment interior with premium finishes, custom furniture, and sophisticated lighting design.",
+    features: ["Premium finishes", "Custom furniture", "Sophisticated lighting", "Balcony garden"],
+    area: "2,200 sq ft",
+    duration: "4 months"
+  },
+  {
+    id: 3,
+    title: "Commercial Office Space",
+    category: "Commercial",
+    location: "Mapusa, Goa",
+    image: "/assets/images/project3.webp",
+    description: "Modern office design promoting collaboration, productivity, and employee well-being.",
+    features: ["Collaborative spaces", "Ergonomic furniture", "Natural lighting", "Breakout areas"],
+    area: "5,000 sq ft",
+    duration: "8 months"
+  },
+  {
+    id: 4,
+    title: "Restaurant Interior",
+    category: "Commercial",
+    location: "Calangute, Goa",
+    image: "/assets/images/project4.webp",
+    description: "Coastal-themed restaurant with warm ambiance, custom seating, and atmospheric lighting.",
+    features: ["Coastal theme", "Custom seating", "Atmospheric lighting", "Outdoor dining"],
+    area: "2,800 sq ft",
+    duration: "5 months"
+  },
+  {
+    id: 5,
+    title: "Heritage Home Renovation",
+    category: "Renovation",
+    location: "Old Goa",
+    image: "/assets/images/project1.webp",
+    description: "Restoration of a heritage home preserving its character while adding modern amenities.",
+    features: ["Heritage preservation", "Modern amenities", "Period-appropriate materials", "Garden restoration"],
+    area: "4,200 sq ft",
+    duration: "10 months"
+  },
+  {
+    id: 6,
+    title: "Beach House Design",
+    category: "Residential",
+    location: "Anjuna, Goa",
+    image: "/assets/images/project2.webp",
+    description: "Beachfront property with indoor-outdoor living, natural materials, and ocean views.",
+    features: ["Indoor-outdoor living", "Natural materials", "Ocean views", "Sustainable design"],
+    area: "3,800 sq ft",
+    duration: "7 months"
+  }
+];
+
+const categories = ["All", "Residential", "Commercial", "Renovation"];
+---
+
+<Layout
+  title="Our Projects - Studio Soup Interior Design & Construction Portfolio"
+  description="Explore our portfolio of completed interior design and construction projects in Goa. From residential villas to commercial spaces, see how we transform spaces."
+>
+  <!-- Hero Section -->
+  <section class="projects-hero">
+    <div class="container">
+      <h1 class="hero-title">Our Projects</h1>
+      <p class="hero-subtitle">
+        Discover our portfolio of completed projects that showcase our expertise in 
+        interior design and construction across Goa.
+      </p>
+    </div>
+  </section>
+
+  <!-- Filter Section -->
+  <section class="filter-section">
+    <div class="container">
+      <div class="filter-buttons">
+        {categories.map(category => (
+          <button 
+            class="filter-btn" 
+            data-category={category.toLowerCase()}
+            data-active={category === "All"}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Grid -->
+  <section class="projects-section">
+    <div class="container">
+      <div class="projects-grid" id="projectsGrid">
+        {projects.map(project => (
+          <div class="project-item" data-category={project.category.toLowerCase()}>
+            <div class="project-image">
+              <img src={project.image} alt={project.title} />
+              <div class="project-overlay">
+                <div class="project-details">
+                  <h3>{project.title}</h3>
+                  <p class="project-location">{project.location}</p>
+                  <p class="project-area">{project.area} • {project.duration}</p>
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-header">
+                <h3>{project.title}</h3>
+                <span class="project-category">{project.category}</span>
+              </div>
+              <p class="project-description">{project.description}</p>
+              <div class="project-features">
+                {project.features.slice(0, 3).map(feature => (
+                  <span class="feature-tag">{feature}</span>
+                ))}
+              </div>
+              <button class="view-project-btn" data-project-id={project.id}>
+                View Details
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to Start Your Project?</h2>
+        <p>
+          Let's discuss your vision and create something extraordinary together. 
+          Get in touch for a free consultation and estimate.
+        </p>
+        <a href="/contact" class="cta-button">
+          Start Your Project
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .projects-hero {
+    background: linear-gradient(135deg, var(--color-black) 0%, var(--color-gray-900) 100%);
+    padding: 4rem 0;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-white);
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--color-gray-300);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .filter-section {
+    padding: 2rem 0;
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-gray-200);
+  }
+
+  .filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid var(--color-gray-300);
+    background: transparent;
+    color: var(--color-gray-700);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+  }
+
+  .filter-btn:hover,
+  .filter-btn[data-active="true"] {
+    border-color: var(--color-black);
+    background: var(--color-black);
+    color: var(--color-white);
+  }
+
+  .projects-section {
+    padding: 4rem 0;
+    background: var(--color-gray-50);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+
+  .project-item {
+    background: var(--color-white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .project-image {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+  }
+
+  .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .project-item:hover .project-image img {
+    transform: scale(1.05);
+  }
+
+  .project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .project-item:hover .project-overlay {
+    opacity: 1;
+  }
+
+  .project-details {
+    text-align: center;
+    color: var(--color-white);
+  }
+
+  .project-details h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-location {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 0.25rem;
+  }
+
+  .project-area {
+    font-size: 0.8rem;
+    opacity: 0.6;
+  }
+
+  .project-info {
+    padding: 1.5rem;
+  }
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+
+  .project-header h3 {
+    font-size: 1.3rem;
+    color: var(--color-black);
+    margin: 0;
+  }
+
+  .project-category {
+    background: var(--color-gray-100);
+    color: var(--color-gray-700);
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  .project-description {
+    color: var(--color-gray-600);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .project-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .feature-tag {
+    background: var(--color-gray-100);
+    color: var(--color-gray-700);
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+  }
+
+  .view-project-btn {
+    background: var(--color-black);
+    color: var(--color-white);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+
+  .view-project-btn:hover {
+    background: var(--color-gray-800);
+  }
+
+  .cta-section {
+    padding: 4rem 0;
+    background: var(--color-black);
+    text-align: center;
+  }
+
+  .cta-content h2 {
+    font-size: 2.5rem;
+    color: var(--color-white);
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.1rem;
+    color: var(--color-gray-300);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-button {
+    background: var(--color-white);
+    color: var(--color-black);
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background: var(--color-gray-100);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+    }
+
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .filter-buttons {
+      gap: 0.5rem;
+    }
+
+    .filter-btn {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectItems = document.querySelectorAll('.project-item');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const category = button.getAttribute('data-category');
+        
+        // Update active button
+        filterButtons.forEach(btn => btn.setAttribute('data-active', 'false'));
+        button.setAttribute('data-active', 'true');
+        
+        // Filter projects
+        projectItems.forEach(item => {
+          const itemCategory = item.getAttribute('data-category');
+          
+          if (category === 'all' || itemCategory === category) {
+            item.style.display = 'block';
+            item.style.animation = 'fadeIn 0.5s ease';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // View project details
+    const viewButtons = document.querySelectorAll('.view-project-btn');
+    viewButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const projectId = button.getAttribute('data-project-id');
+        // Here you would typically navigate to a detailed project page
+        // For now, we'll just show an alert
+        alert(`Viewing details for project ${projectId}. This would navigate to a detailed project page.`);
+      });
+    });
+  });
+</script>
+
+<style>
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style> 
