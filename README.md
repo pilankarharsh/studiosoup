@@ -1,43 +1,114 @@
-# Astro Starter Kit: Minimal
+# 🏗️ Studio Soup - Interior Design & Contruction Firm
 
-```sh
-npm create astro@latest -- --template minimal
+## ✨ Project Highlights
+
+We have focused on the design and performance of the website equally
+
+### 🎯 Key Features
+
+- **🚀 Lightning Fast Performance** - Built for optimal loading speeds
+- **📱 Responsive Design** - Seamless experience across all devices
+- **🖼️ Dynamic Image Gallery** - To showcases Project
+- **🎨 Advanced CSS Animations** - Custom animations and transitions
+- **📊 Headless CMS Integration** - CMS for dynamic content management
+- **🔍 SEO Optimized** -  Used best practices for optimization
+- **⚡ Modern Build Pipeline** - Compression, linting, and type checking
+
+## 🛠️ Technical Stack
+
+### Frontend Framework
+- **Astro 5.12.3** - Modern static site generator with partial hydration
+### Content Management
+- **Sanity CMS** - Headless CMS for dynamic content
+- **Sanity Image URL** - Optimized image delivery and transformations
+
+### UI/UX Libraries
+- **Swiper.js** - Touch-enabled galleries
+
+### Development Tools
+- **ESLint** - Code quality and consistency
+- **Prettier** - Code formatting
+- **Astro Compress** - Asset optimization
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/studiosoup.git
+
+# Navigate to project directory
+cd studiosoup
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+### Available Scripts
 
-## 🚀 Project Structure
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server at `localhost:4321` |
+| `npm run build` | Build production site to `./dist/` |
+| `npm run preview` | Preview production build locally |
+| `npm run lint` | Run ESLint for code quality |
+| `npm run format` | Format code with Prettier |
+| `npm run type-check` | Run TypeScript type checking |
 
-Inside of your Astro project, you'll see the following folders and files:
+## 📁 Project Structure
 
-```text
-/
-├── public/
+```
+studiosoup/
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── components/          # Reusable UI components
+│   │   ├── Header.astro    # Navigation with animated menu
+│   │   └── Footer.astro    # Site footer
+│   ├── layout/             # Page layouts
+│   │   └── Layout.astro    # Base layout with SEO
+│   ├── pages/              # Route pages
+│   │   ├── index.astro     # Homepage with hero & gallery
+│   │   ├── About.astro     # About page
+│   │   ├── Services.astro  # Services showcase
+│   │   ├── Projects.astro  # Project portfolio
+│   │   └── Contact.astro   # Contact form
+│   └── styles/             # Global styles
+│       ├── master.css      # Main stylesheet
+│       ├── variables.css   # CSS custom properties
+│       └── utilities.css   # Utility classes
+├── cms/                    # Sanity CMS configuration
+├── lib/                    # Utility functions
+└── public/                 # Static assets
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 🎯 Key Technical Achievements
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+### Performance Metrics
+- **Lighthouse Score**: 
 
-Any static assets, like images, can be placed in the `public/` directory.
+## 🌟 Skills Demonstrated
 
-## 🧞 Commands
+- **Modern JavaScript/TypeScript** 
+- **CSS Mastery** 
+- **Performance Optimization**
+- **API Integration**
+- **SEO & Accessibility**
 
-All commands are run from the root of the project, from a terminal:
+## 🔗 Live Demo
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Experience the live website: **[studiosoup.in](https://studiosoup.web.app)**/
 
-## 👀 Want to learn more?
+## 📧 Contact
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Built with passion by a developer who loves creating exceptional experiences.
+
+---
+
+*This project showcases modern web development practices, performance optimization, and attention to detail in creating premium digital experiences.*
