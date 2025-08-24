@@ -7,10 +7,10 @@ const navItems = [
 ];
 ---
 
-<header class="fixed width100 header-animation">
-    <div class="navbar row center container relative flex width100">
+<header class="fixed w-full header-animation">
+    <div class="navbar row center container relative flex w-full">
         <!-- logo -->
-        <a href="/" class="brand-logo relative width100">
+        <a href="/" class="brand-logo relative">
             <svg
                 viewBox="0 0 78 52"
                 fill="none"
@@ -78,7 +78,7 @@ const navItems = [
         </a>
         <!-- menu button -->
         <button
-            class="nav-btn-menu column flex center"
+            class="nav-btn-menu column flex content-center"
             aria-label="Toggle menu"
             aria-controls="navbar-menu"
         >
@@ -100,7 +100,7 @@ const navItems = [
             </span>
         </button>
     </div>
-    <div class="navbar-menu column fixed width100 flex" id="navbar-menu">
+    <div class="navbar-menu column fixed w-full flex" id="navbar-menu">
         <div>
             <div class="navbar-menu-caption"><h3>Menu</h3></div>
             <nav class="navbar-list column flex">
@@ -136,8 +136,8 @@ const navItems = [
         left: 0;
         right: 0;
         background: rgba(0, 0, 0, 0.8);
-        -webkit-backdrop-filter: var(--filter-header);
-        backdrop-filter: var(--filter-header);
+        -webkit-backdrop-filter: var(--filter);
+        backdrop-filter: var(--filter);
         z-index: 9999;
     }
     header.transparent,.transparent .navbar-menu {
@@ -155,7 +155,7 @@ const navItems = [
         opacity: 1;
     }
     .navbar {
-        padding: calc(var(--space-gap-xs) * 4) calc(var(--space-gap-xs) * 4);
+        padding: calc(var(--space-xs) * 4) calc(var(--space-xs) * 4);
         
     }
     .left-space {
@@ -178,7 +178,6 @@ const navItems = [
         }
     }
     .nav-btn-menu {
-        align-items: center;
         gap: .5rem;
         opacity: 0.8;
         z-index: 3;
@@ -192,7 +191,7 @@ const navItems = [
         transition: opacity 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
     }
     .nav-btn-menu-icon-bar {
-        width: var(--space-gap-lg);
+        width: var(--space-lg);
     }
     .nav-btn-menu-icon-bar-top {
         transition:
@@ -259,7 +258,7 @@ const navItems = [
             height: 1.8px;
         }
         .nav-btn-menu-icon-bar {
-            width: var(--space-gap-md); /* or define a smaller width */
+            width: var(--space-md); /* or define a smaller width */
         }
     }
     @media (max-width: 480px) {
@@ -268,7 +267,7 @@ const navItems = [
             height: 40px;
         }
         .nav-btn-menu-icon-bar {
-            width: var(--space-gap-md);
+            width: var(--space-md);
         }
     }
     /* Mobile Menu*/
@@ -276,12 +275,12 @@ const navItems = [
         right: 0;
         height: 100vh;
         background: rgba(0, 0, 0, 0.8);
-        gap: var(--space-gap-lg);
+        gap: var(--space-lg);
         opacity: 0;
         pointer-events: none;
         transition: opacity 0.5s ease;
         z-index: 999;
-        padding: calc(var(--space-gap-xs) * 14) calc(var(--space-gap-xs) * 14);
+        padding: calc(var(--space-xs) * 14) calc(var(--space-xs) * 14);
     }
     .navbar-menu.active {
         opacity: 1;
@@ -296,16 +295,16 @@ const navItems = [
     .navbar-menu-caption h3 {
         font-family: var(--font-secondary);
         color: var(--color-nav-muted);
-        font: var(--font-md);
+        font: 1.5rem;
         font-weight: var(--font-weight-medium);
     }
     .navbar-list {
-        gap: var(--space-gap-xs);
+        gap: var(--space-xs);
     }
     .navbar-link {
         font-family: var(--font-primary);
-        font-weight: var(--font-weight-base);
-        font-size: var(--font-xl);
+        font-weight: var(--font-weight-normal);
+        font-size: 3rem;
         display: inline-block;
     }
     @media (max-width: 768px) {
@@ -313,10 +312,10 @@ const navItems = [
             left: 0;
         }
         .navbar-menu-caption h3 {
-            font-size: var(--font-base);
+            font-size: 1rem;
         }
         .navbar-link {
-            font-size: var(--font-lg);
+            font-size: 2.5rem;
         }
     }
     .navbar-link:hover {
@@ -352,7 +351,7 @@ const navItems = [
     .menu-contact{
         font-family: var(--font-primary);
         font-weight: var(--font-weight-semibold);
-        font-size: var(--font-lg);
+        font-size: 2.5rem;
         color: var(--color-primary);
         opacity: 0;
         transform: translateY(20px);
@@ -362,7 +361,7 @@ const navItems = [
     }
     @media (max-width: 768px) {
         .menu-contact{
-            font-size: var(--font-md);
+            font-size: 1.5rem;
         }
     }
 </style>

@@ -2,7 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 import "swiper/css";
 import { getMediaByTag } from "../../lib/queries";
-// Fetch media with error handling
 const [heroMedia, servicetMedia1, servicetMedia2, servicetMedia3, conversionMedia] = await Promise.allSettled([
   getMediaByTag("hero-video"),
   getMediaByTag("service-img-1"),
@@ -263,7 +262,8 @@ const reasons = [
             if (isHomePage && heroSection && header) {
                 const handleHeaderScroll = () => {
                     const heroBottom =
-                        heroSection.offsetTop + heroSection.offsetHeight;
+                        (heroSection instanceof HTMLElement ? heroSection.offsetTop : 0) +
+                        (heroSection instanceof HTMLElement ? heroSection.offsetHeight : 0);
                     const scrollY = window.scrollY;
 
                     if (scrollY < heroBottom - 100) {
